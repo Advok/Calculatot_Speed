@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Калькулятор тормозного пути</title>
+		<link rel="icon" href="calc_speed.png">
+		<link rel="stylesheet" href="css/main.css" />
+		<meta name="keywords" content="Калькулятор тормозного пути, калькулятор торможения автомобиля, 
+		расчет скорости автомобиля по следам торможения, экспресс анализ ДТП, определение скорости по следам торможения">
+		<meta name="description" content="Калькулятор расчета скорости автомобиля по следам торможения">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,700&display=swap&subset=cyrillic-ext" rel="stylesheet" />
+	</head>
+
+	<body>
+		<main class="calc-wrapper">
+			<div class="container">
+				<form id="form">
+					<div class="heading">
+						<h1 class="heading-title">Калькулятор расчета скорости движения автомобиля по длине следа торможения</h1>
+						<h3 class="heading-desc">Допустимая скорость движения в городе - 50км/ч.</h3> <br/>
+						Калькулятор скорости автомобиля расчитывает его приблизительную скорость исходя из длины следа торможения, 
+						типа транспортного средства, типа дорожного покрытия, загруженности автомобиля, но без учета 
+						особенностей срабатывания антиблокировочной системы конкретного автомобиля, состояние тормозной системы, состояния и типа протектора шин, и других факторов.  
+						</p>
+					</div>
+
+					<!-- Длина следов -->
+					<div class="calc-section">
+						<label class="checkbox-wrapper title-bold section-title .section-title--vertical-center">
+							<span class="title__inline">Введите длинну следов торможения автомобиля:</span>
+							<input type="number" min="0" max="100" value="10" id="length-input" class="title__inline input-short" />
+							<span class="title__inline">метров</span>
+						</label>
+						<input type="range" id="length-range" class="range-input" min="0" max="100" value="10" step="0.5" />
+					</div>
+					<!-- // Длина следов -->
+					
+					<!-- Тип транспортного средства -->
+					<div class="calc-section">
+						<h4 class="checkbox-wrapper title-bold section-title">Тип транспортного средства</h4>
+						
+						<label class="radio-wrapper" data-name="mobile">
+							<input type="radio" class="radio" name="type" id = "type1" value="1" />
+							<div class="title-lite">Легковой авто без уселителя тормозов</div>
+						</label>
+						
+						<label class="radio-wrapper" data-name="mobile">
+							<input type="radio" class="radio" name="type" id = "type2" value="1" checked />
+							<div class="title-lite">
+								Легковой автомобиль с усилитилем тормозов
+							</div>
+						</label>
+
+						<label class="radio-wrapper" data-name="mobile">
+							<input type="radio" class="radio" name="type" id = "type3" value="1" />
+							<div class="title-lite">
+								Пикап (Джип)
+							</div>
+						</label>
+						<label class="radio-wrapper" data-name="mobile">
+							<input type="radio" class="radio" name="type" id = "type4" value="1" />
+							<div class="title-lite">
+								Микроавтобус
+						</div>
+						</label>
+						
+					</div>
+	               <!-- // Тип транспортного средства -->	
+
+					<!--  Тип дорожного покрытия - doroga-->
+					<div class="calc-section">
+						<label class="checkbox-wrapper title-bold section-title"> Тип дорожного покрытия </label>
+						<label class="radio-wrapper">
+							<input type="radio" class="radio" name="build" id = "doroga1" value="1" checked />
+							<div class="title-lite">Сухой асфальтобетон</div>
+						</label>
+						<label class="radio-wrapper">
+							<input type="radio" class="radio" name="build" id = "doroga2" value="1" />
+							<div class="title-lite">Мокрый асфальтобетон чистый </div>
+						</label>
+						<label class="radio-wrapper">
+							<input type="radio" class="radio" name="build" id = "doroga3" value="1" />
+							<div class="title-lite">Мокрый асфальтобетон грязный </div>
+						</label>
+						<label class="radio-wrapper">
+							<input type="radio" class="radio" name="build" id = "doroga4" value="1" />
+							<div class="title-lite">Грунтовая дорога сухая </div>
+						</label>
+						
+						<label class="radio-wrapper">
+							<input type="radio" class="radio" name="build" id = "doroga5" value="1" />
+							<div class="title-lite">Укатанный снег </div>
+						</label>
+						<label class="radio-wrapper">
+							<input type="radio" class="radio" name="build" id = "doroga6" value="1" />
+							<div class="title-lite">Гололед </div>
+						</label>
+					</div>
+					<!-- // тип дорожного покрия-->
+
+					<!-- Степень загрузки автомобиля zoom-->
+					<div class="calc-section">
+						<label class="checkbox-wrapper title-bold section-title"> Степень загрузки автомобиля - количество людей в автомобиле </label>
+						<div class="zooms-wrapper">
+							<label class="zooms-label">
+								<input class="zooms-radio-real" type="radio" name="zooms" value="1" checked/>
+								<span class="zooms-radio-fake">1</span>
+							</label>
+
+							<label class="zooms-label">
+								<input class="zooms-radio-real" type="radio" name="zooms" value="0.99" />
+								<span class="zooms-radio-fake">3</span>
+							</label>
+
+							<label class="zooms-label">
+								<input class="zooms-radio-real" type="radio" name="zooms" value="0.98" />
+								<span class="zooms-radio-fake">5</span>
+							</label>
+						</div>
+					</div>
+					<!-- // степень загрузки автомобиля -->
+
+					<!-- Скорость автомобиля -->
+					<div class="calc-speed">
+						<div class="calc-speed-title">Скорость автомобиля</div>
+						<div class="calc-speed-value">
+							<span id="total-speed">0</span>
+							км/ч
+						</div>
+					</div>
+					<!-- // Скорость автомобиля -->
+				</form>
+			</div>
+		</main>
+
+		<footer class="footer footer-inner">
+			<div class="container">
+				<p class="footer-text">Калькулятор подготовлен при содействии адвокатов компании "АвтоАдвокат Черных и партнеры", наш сайт <a href="https://auto-advokat.in.ua/" target="_blank">АвтоАдвокат - адвокат по ДТП в Киеве, Харькове </a></p>
+				<br/>
+				<p class="footer-text">Адвокаты по ДТП с опытом более 12 лет собрали полезные судебные рашения для водителей на сайте <a href="https://advokat23.top" target="_blank">ТОП 23 решений Верховного Суда для защиты водителей по "автодорожным делам" </a></p>
+			</div>
+		</footer>
+		<script src="js/main.js"></script>
+		</body>
+</html>
